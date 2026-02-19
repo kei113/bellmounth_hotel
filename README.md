@@ -1,11 +1,11 @@
-# 🏨 Hotel Bellmounth (Sumber Jaya) - Management System
+# 🏨 Hotel Bellmounth - Management System
 
 [![Academic Project](https://img.shields.io/badge/Project-Academic-blue.svg)](https://github.com/)
 [![PHP](https://img.shields.io/badge/PHP-8.0+-777BB4.svg)](https://www.php.net/)
 [![MySQL](https://img.shields.io/badge/MySQL-5.7+-4479A1.svg)](https://www.mysql.com/)
 [![Bootstrap](https://img.shields.io/badge/Bootstrap-5.3-7952B3.svg)](https://getbootstrap.com/)
 
-Sistem Informasi Manajemen Hotel Bellmounth (Sumber Jaya) adalah aplikasi berbasis web yang dirancang untuk mendigitalisasi operasional harian hotel, mulai dari manajemen inventori kamar hingga alur reservasi kompleks dengan arsitektur **Master-Detail**.
+Manajemen Hotel Bellmounth adalah aplikasi berbasis web yang dirancang untuk mendigitalisasi operasional harian hotel, mulai dari manajemen inventori kamar hingga alur reservasi kompleks dengan arsitektur **Master-Detail**.
 
 ---
 
@@ -59,11 +59,11 @@ Sistem Informasi Manajemen Hotel Bellmounth (Sumber Jaya) adalah aplikasi berbas
     git clone https://github.com/username/sumberjaya.git
     ```
 2.  **Konfigurasi XAMPP**
-    - Pindahkan folder ke `C:\xampp\htdocs\sumberjaya`.
+    - Pindahkan folder ke `C:\xampp\htdocs\bellmounth`.
     - Aktifkan Apache dan MySQL di XAMPP Control Panel.
 3.  **Persiapan Database**
     - Buat database baru bernama `bellmounth` di phpMyAdmin.
-    - Impor file SQL `database/repair_database_master.sql`.
+    - Impor file SQL `bellmounth_database.sql`.
 4.  **Konfigurasi Environment**
     - Sesuaikan kredensial database di file `.env`.
     ```env
@@ -71,16 +71,10 @@ Sistem Informasi Manajemen Hotel Bellmounth (Sumber Jaya) adalah aplikasi berbas
     DB_NAME=bellmounth
     DB_USER=root
     DB_PASS=
-    BASE_PATH=/sumberjaya
+    BASE_PATH=/bellmounth
     ```
 5.  **Akses Aplikasi**
-    - Buka browser dan akses `http://localhost/sumberjaya`.
-
----
-
-## 📐 Perancangan (Wireframes)
-
-Proyek ini dirancang menggunakan **PlantUML Salt** untuk memastikan pengalaman pengguna (UX) yang logis sebelum tahap implementasi. Anda dapat melihat file `.puml` di dalam direktori proyek untuk detail rancangan wireframe halaman Login, Dashboard, dan Reservasi.
+    - Buka browser dan akses `http://localhost/bellmounth`.
 
 ---
 
