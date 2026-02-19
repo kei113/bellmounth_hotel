@@ -1,0 +1,504 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+:root {
+  /* Hotel Bellmounth Palette */
+  --primary-color: #1A202C; /* Deep Navy - Professionalism */
+  --secondary-color: #718096; /* Cool Gray */
+  --accent-color: #C5A059;  /* Elegant Gold - Luxury */
+  --accent-hover: #B08D46;
+  
+  --success-color: #38a169;
+  --danger-color: #e53e3e;
+  --warning-color: #dd6b20;
+  --info-color: #3182ce;
+  
+  --light-color: #F7FAFC;
+  --dark-color: #1A202C;
+  
+  --sidebar-width: 260px;
+  --sidebar-collapsed-width: 80px;
+  --transition-speed: 0.3s;
+  
+  --body-bg: #F8F9FA; /* Soft Cream/White */
+  --card-bg: #FFFFFF;
+  
+  --text-color: #2D3748;
+  --text-muted: #718096;
+  --border-color: #E2E8F0;
+  
+  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background-color: var(--body-bg);
+  color: var(--text-color);
+  line-height: 1.5;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Playfair Display", serif;
+  color: var(--primary-color);
+  font-weight: 700;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: var(--sidebar-width);
+  background-color: var(--primary-color); /* Navy Background */
+  box-shadow: var(--shadow);
+  z-index: 1000;
+  transition: width var(--transition-speed);
+  overflow-x: hidden;
+  color: #E2E8F0;
+}
+
+.sidebar.collapsed {
+  width: var(--sidebar-collapsed-width);
+}
+
+.sidebar-header {
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  height: 70px;
+}
+
+.sidebar-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--accent-color); /* Gold Logo Text */
+  text-decoration: none;
+  letter-spacing: 0.5px;
+}
+
+.sidebar-logo i {
+  font-size: 1.5rem;
+  color: var(--accent-color);
+}
+
+.sidebar-logo span {
+  transition: opacity var(--transition-speed);
+  white-space: nowrap;
+}
+
+.sidebar.collapsed .sidebar-logo span {
+  opacity: 0;
+  visibility: hidden;
+  width: 0;
+}
+
+.sidebar-toggle {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 1.25rem;
+  cursor: pointer;
+  transition: color var(--transition-speed);
+}
+
+.sidebar-toggle:hover {
+  color: var(--accent-color);
+}
+
+.sidebar-menu {
+  padding: 1.5rem 1rem;
+}
+
+.sidebar-item {
+  margin-bottom: 0.5rem;
+}
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.85rem 1rem;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  border-radius: 0.5rem;
+  transition: all var(--transition-speed);
+  font-weight: 500;
+  letter-spacing: 0.3px;
+}
+
+.sidebar-link:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: var(--accent-color);
+  transform: translateX(3px);
+}
+
+.sidebar-link.active {
+  background: linear-gradient(90deg, rgba(197, 160, 89, 0.15) 0%, rgba(197, 160, 89, 0) 100%);
+  color: var(--accent-color);
+  border-left: 3px solid var(--accent-color);
+}
+
+.sidebar-link i {
+  font-size: 1.25rem;
+  min-width: 24px;
+  text-align: center;
+}
+
+.sidebar-link span {
+  transition: opacity var(--transition-speed);
+  white-space: nowrap;
+}
+
+.sidebar.collapsed .sidebar-link span {
+  opacity: 0;
+  visibility: hidden;
+  width: 0;
+}
+
+/* Top Navbar */
+.top-navbar {
+  position: fixed;
+  top: 0;
+  left: var(--sidebar-width);
+  right: 0;
+  height: 70px;
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  z-index: 999;
+  transition: left var(--transition-speed);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.sidebar.collapsed ~ .top-navbar {
+  left: var(--sidebar-collapsed-width);
+}
+
+.page-title {
+  font-family: "Playfair Display", serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+  color: var(--primary-color);
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+  border: 2px solid var(--accent-color);
+}
+
+/* Main Content */
+.main-content {
+  margin-left: var(--sidebar-width);
+  margin-top: 70px;
+  padding: 2rem;
+  min-height: calc(100vh - 70px);
+  transition: margin-left var(--transition-speed);
+}
+
+.sidebar.collapsed ~ .main-content {
+  margin-left: var(--sidebar-collapsed-width);
+}
+
+/* Dashboard Cards */
+.dashboard-card {
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  padding: 1.75rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--border-color);
+}
+
+.card-header-custom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+
+.card-title {
+  font-family: "Inter", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin: 0;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.card-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+.card-icon.primary {
+  background-color: rgba(26, 32, 44, 0.1);
+  color: var(--primary-color);
+}
+
+.card-icon.success {
+  background-color: rgba(56, 161, 105, 0.1);
+  color: var(--success-color);
+}
+
+.card-icon.warning {
+  background-color: rgba(197, 160, 89, 0.15);
+  color: var(--accent-color);
+}
+
+.card-value {
+  font-family: "Playfair Display", serif;
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin: 0.5rem 0;
+  color: var(--primary-color);
+}
+
+/* Buttons */
+.btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: white;
+  padding: 0.5rem 1.25rem;
+  font-weight: 500;
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+
+.btn-primary:hover {
+  background-color: #2D3748;
+  border-color: #2D3748;
+  transform: translateY(-1px);
+}
+
+.btn-outline-primary {
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.btn-outline-primary:hover {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.btn-warning { /* Re-styled as Gold Button for emphasis */
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+  color: white;
+}
+
+.btn-warning:hover {
+  background-color: var(--accent-hover);
+  border-color: var(--accent-hover);
+  color: white;
+}
+
+/* Tables */
+.custom-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.custom-table th {
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+  padding: 1rem;
+  border-bottom: 2px solid var(--border-color);
+  background-color: #FAFAFA;
+}
+
+.custom-table td {
+  padding: 1rem;
+  border-bottom: 1px solid var(--border-color);
+  vertical-align: middle;
+  color: var(--text-color);
+}
+
+.custom-table tr:hover td {
+  background-color: #FAFAFA;
+}
+
+.custom-table tr:last-child td {
+  border-bottom: none;
+}
+
+/* Status Badges - Custom */
+.status-badge {
+  padding: 0.35rem 0.85rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+}
+
+.status-badge.success {
+  background-color: rgba(45, 106, 79, 0.12);
+  color: #2D6A4F;
+}
+
+.status-badge.pending {
+  background-color: rgba(197, 160, 89, 0.15);
+  color: #B08D46;
+}
+
+.status-badge.failed {
+  background-color: rgba(155, 44, 44, 0.1);
+  color: #9B2C2C;
+}
+
+/* Bootstrap Badge Overrides - Hotel Bellmounth Theme */
+.badge.bg-success {
+  background-color: #2D6A4F !important; /* Muted Forest Green for LUNAS */
+}
+
+.badge.bg-warning {
+  background-color: var(--accent-color) !important; /* Gold */
+  color: white !important;
+}
+
+.badge.bg-primary {
+  background-color: var(--primary-color) !important; /* Navy */
+}
+
+.badge.bg-info {
+  background-color: #4A5568 !important; /* Slate Gray */
+  color: white !important;
+}
+
+.badge.bg-danger {
+  background-color: #9B2C2C !important; /* Muted Red */
+}
+
+.badge.bg-secondary {
+  background-color: #718096 !important; /* Cool Gray */
+}
+
+/* Card Overrides for Booking List */
+.card {
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+}
+
+.card .card-header {
+  background-color: #FAFAFA;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.card .card-footer {
+  background-color: #FAFAFA;
+  border-top: 1px solid var(--border-color);
+}
+
+.card .card-title {
+  font-family: "Playfair Display", serif;
+  color: var(--primary-color);
+}
+
+/* Border Colors for Status Cards */
+.card.border-success {
+  border-color: #2D6A4F !important;
+}
+
+.card.border-danger {
+  border-color: #9B2C2C !important;
+}
+
+/* Text Colors */
+.text-primary {
+  color: var(--primary-color) !important;
+}
+
+.text-danger {
+  color: #9B2C2C !important;
+}
+
+/* Button Info Override */
+.btn-info {
+  background-color: #4A5568;
+  border-color: #4A5568;
+  color: white;
+}
+
+.btn-info:hover {
+  background-color: #2D3748;
+  border-color: #2D3748;
+  color: white;
+}
+
+.btn-danger {
+  background-color: #9B2C2C;
+  border-color: #9B2C2C;
+}
+
+.btn-danger:hover {
+  background-color: #822727;
+  border-color: #822727;
+}
+
+/* Footer */
+.footer {
+  margin-left: var(--sidebar-width);
+  padding: 2rem;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  border-top: 1px solid var(--border-color);
+  transition: margin-left var(--transition-speed);
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+}
+
+.sidebar.collapsed ~ .footer {
+  margin-left: var(--sidebar-collapsed-width);
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .sidebar { transform: translateX(-100%); }
+  .sidebar.active { transform: translateX(0); }
+  .main-content, .top-navbar, .footer { margin-left: 0; }
+  .sidebar.collapsed ~ .main-content, 
+  .sidebar.collapsed ~ .top-navbar, 
+  .sidebar.collapsed ~ .footer { margin-left: 0; }
+}
+
