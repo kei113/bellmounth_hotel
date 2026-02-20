@@ -84,5 +84,5 @@ Dokumentasi lengkap sistem ini tersedia dalam 13 Bab modul yang mencakup penjela
 
 ---
 
-**Hotel Bellmounth Project**
+**Sistem Reservasi Hotel Bellmounth**
 _Dikembangkan untuk Tugas Akhir Mata Kuliah Pemrograman Web._
